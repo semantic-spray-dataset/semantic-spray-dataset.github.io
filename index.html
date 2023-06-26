@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="SemanticSpray Dataset. LiDAR data captured in adverse weather (rainy conditions). Vehicles traveling through wet surfaces create road spray.">
+  <meta name="keywords" content="SemanticSpray Dataset, LiDAR , dverse weather, rainy conditions, road spray">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SemanticSpray Dataset</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">SemanticSpray Dataset</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://aldipiroli.github.io/">Aldi Piroli</a><sup>1</sup>,</span>
+              <span class="author-block">
+                &nbsp;<a href="">Vinzenz Dallabetta</a><sup>2</sup>,</span>
+              <span class="author-block">
+                &nbsp;<a href="">Johannes Kopp</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                &nbsp;<a href="">Marc Walessa</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                &nbsp;<a href="">Daniel Meissner</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                &nbsp;<a href="">Klaus Dietmayer</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Ulm University &nbsp;</span>
+              <span class="author-block"><sup>2</sup>BMW AG</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://ieeexplore.ieee.org/document/10143263"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2305.16129" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span> -->
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/aldipiroli/semantic_spray_dataset"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="https://oparu.uni-ulm.de/xmlui/handle/123456789/48891"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-archive"></i>
+                    </span>
+                    <span>Data</span>
+                  </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
+        free-viewpoint
+        portraits.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/compressed/0102_2021-09-08-17-59-07_0_compressed.mp4" type="video/mp4">
+            </video>
+            <!-- <p style="text-align: center; ">ego_velocity: 130km/h</p> -->
+          </div>
+
+          <div class="item item-fullbody">
+            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/compressed/0090_2021-09-08-11-40-49_0_compressed.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-shiba">
+            <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/compressed/0096_2021-09-08-17-49-24_0_compressed.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-blueshirt">
+            <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/compressed/0084_2021-09-08-17-31-03_0_compressed.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-mask">
+            <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/compressed/0078_2021-09-08-17-22-14_0_compressed.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-coffee">
+            <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/compressed/0078_2021-09-08-11-23-11_0_compressed.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              LiDARs are one of the main sensors used for autonomous driving applications, providing accurate depth
+              estimation regardless of lighting conditions. However, they are severely affected by adverse weather
+              conditions such as rain, snow, and fog.
+            </p>
+            <p>
+              This dataset provides semantic labels for a subset of the
+              <a href="https://www.fzd-datasets.de/spray/"> RoadSpray dataset </a>, which contains scenes of vehicles
+              traveling at different speeds on wet surfaces,
+              creating a trailing spray effect. We provide semantic labels for over 200 dynamic scenes, labeling each
+              point in the LiDAR point clouds as background (road, vegetation, buildings, ...), foreground (moving
+              vehicles), and noise (spray, LiDAR artifacts).
+            </p>
+
+          </div>
+        </div>
+      </div>
+      <!--/ Getting Started. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Getting Started</h2>
+          <div class="content has-text-justified">
+            <ul>
+              <li>Download all of the dataset files from <a
+                  href="https://oparu.uni-ulm.de/xmlui/handle/123456789/48891">here</a>.
+              </li>
+              <li>Combine all of the zip files in one single file:<br>
+                <code class="bash">
+                  $ zip -F SemanticSprayDataset.zip --out SemanticSprayDataset_single_file.zip
+                </code>
+              </li>
+              <li>Extract the files:<br>
+                <code class="bash">
+                  $ unzip SemanticSprayDataset_single_file.zip
+                </code>
+              </li>
+              <li>The extracted dataset should have a structure like this:
+                <br>
+
+                <pre><code>
+|--- Crafter_dynamic
+|   |--- 0000_2021-09-08-14-36-56_0
+|   |   |--- image_2
+|   |   |   |--- 000000.jpg
+|   |   |   |--- ....
+|   |   |--- delphi_radar
+|   |   |   |--- 000000.bin
+|   |   |   |--- ....
+|   |   |--- ibeo_front
+|   |   |   |--- 000000.bin
+|   |   |   |--- ....
+|   |   |--- ibeo_rear
+|   |   |   |--- 000000.bin
+|   |   |   |--- ....
+|   |   |--- labels
+|   |   |   |--- 000000.label
+|   |   |   |--- ....
+|   |   |--- velodyne
+|   |   |   |--- 000000.bin
+|   |   |   |--- ....
+|   |   |--- poses.txt
+|   |   |--- metadata.txt
+|--- Golf_dynamic
+...
+</code></pre>
+          </div>
+
+          </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+
+
+
+  <!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+    </div>
+  </section> -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="./static/videos/nerfies_paper.pdf">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+              Please remember to remove the analytics code included in the header of the website which
+              you do not want on your website.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
