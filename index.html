@@ -9,19 +9,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SemanticSpray Dataset</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1WF92HZQ9N"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
-    gtag('config', 'G-PYVRSFMDRL');
-  </script> -->
+    gtag('config', 'G-1WF92HZQ9N');
+  </script>
+
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -203,7 +202,7 @@
             </p>
             <p>
               This dataset provides semantic labels for a subset of the
-              <a href="https://www.fzd-datasets.de/spray/"> RoadSpray dataset </a>, which contains scenes of vehicles
+              <a href="https://www.fzd-datasets.de/spray/"> Road Spray Dataset </a>, which contains scenes of vehicles
               traveling at different speeds on wet surfaces,
               creating a trailing spray effect. We provide semantic labels for over 200 dynamic scenes, labeling each
               point in the LiDAR point clouds as background (road, vegetation, buildings, ...), foreground (moving
@@ -220,7 +219,16 @@
           <div class="content has-text-justified">
             <ul>
               <li>Download all of the dataset files from <a
-                  href="https://oparu.uni-ulm.de/xmlui/handle/123456789/48891">here</a>.
+                  href="https://oparu.uni-ulm.de/xmlui/handle/123456789/48891">here</a>. Afterwards, you should have the
+                following files:
+                <ul>
+                  <li><code class="bash">SemanticSprayDataset.zip</code></li>
+                  <li><code class="bash">SemanticSprayDataset.z01</code></li>
+                  <li><code class="bash">SemanticSprayDataset.z02</code></li>
+                  <li><code class="bash">SemanticSprayDataset.z03</code></li>
+                  <li><code class="bash">SemanticSprayDataset.z04</code></li>
+                  <li><code class="bash">SemanticSprayDataset.z05</code></li>
+                </ul>
               </li>
               <li>Combine all of the zip files in one single file:<br>
                 <code class="bash">
@@ -268,9 +276,107 @@
           </ul>
         </div>
       </div>
-    </div>
 
-    </div>
+
+      <!-- Exploring The Data. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Exploring The Data</h2>
+          <div class="content has-text-justified">
+            <p>
+              The <b>sensor setup</b> used for the recordings is the <a
+                href="https://www.fzd-datasets.de/spray/">following</a>:
+            <ul>
+              <li>1 Front Camera</li>
+              <li>1 Velodyne VLP32C LiDAR (top mounted high-resolution LiDAR)</li>
+              <li>2 Ibeo LUX 2010 LiDAR (front and rear mounted, low-resolution LiDAR)</li>
+              <li>1 Aptiv ESR 2.5 Radar</li>
+            </ul>
+            For each scene, each <b>sensor data</b> can be found in their respective folders:
+            <ul>
+              <li>[Camera Image] in the folder "image_2"</li>
+              <li>[VLP32C LiDAR] in the folder "velodyne"</li>
+              <li>[VLIbeo LUX 2010 LiDAR front] in the folder "ibeo_front"</li>
+              <li>[VLIbeo LUX 2010 LiDAR rear] in the folder "ibeo_rear"</li>
+              <li>[Aptiv ESR 2.5 Radar] in the folder "delphi_radar"</li>
+              <li>[Semantic Labels for VLP32C LiDAR] in the folder "labels"</li>
+              <li>The ego vehicle poses are located in the file "poses.txt". The convention used by the <a
+                  href="http://www.semantic-kitti.org/dataset.html"> SemanticKITTI dataset</a> is followed.</li>
+              <li>Additional information on the scene setup (e.g., ego_velocity) are given in the "metadata.txt" file.
+              </li>
+            </ul>
+
+            We provide <b> semantic labels</b> for the VLP32C LiDAR scans. The labeled classes and associated class ID
+            are the following:
+            <ul>
+              <li>
+                <code class="bash">Background: 0</code>
+              </li>
+              <li>
+                <code class="bash">Leading Vehicle: 1</code>
+              </li>
+              <li>
+                <code class="bash">Spray and other noise artifacts : 2</code>
+              </li>
+            </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Dataset Toolkit</h2>
+          <div class="content has-text-justified">
+            <p>
+              In the following <a href="https://github.com/aldipiroli/semantic_spray_dataset"> GitHub repository </a>, we
+              provide python code for loading and visualizing the dataset.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Citation -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Citation</h2>
+          <div class="content has-text-justified">
+            <p>
+            <section class="section" id="BibTeX">
+              <div class="container is-max-desktop content">
+                <h5>SemanticSpray Dataset</h5>
+                <pre><code>@ARTICLE{10143263,
+author={Piroli, Aldi and Dallabetta, Vinzenz and Kopp, Johannes and Walessa, Marc and Meissner, Daniel and Dietmayer, Klaus},
+journal={IEEE Robotics and Automation Letters},
+title={Energy-Based Detection of Adverse Weather Effects in LiDAR Data}, 
+year={2023},
+volume={8},
+number={7},
+pages={4322-4329},
+doi={10.1109/LRA.2023.3282382}}</code></pre>
+              </div>
+              <h5>Road Spray Dataset</h5>
+              <pre><code>@misc{https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/3537,
+url = { https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/3537 },
+author = { Linnhoff, Clemens and Elster, Lukas and Rosenberger, Philipp and Winner, Hermann },
+doi = { 10.48328/tudatalib-930 },
+keywords = { Automated Driving, Lidar, Radar, Spray, Weather, Perception, Simulation, 407-04 Verkehrs- und Transportsysteme, Intelligenter und automatisierter Verkehr, 380 },
+publisher = { Technical University of Darmstadt },
+year = { 2022-04 },
+copyright = { Creative Commons Attribution 4.0 },
+title = { Road Spray in Lidar and Radar Data for Individual Moving Objects }
+}</code></pre>
+          </div>
+
+  </section>
+  </p>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
   </section>
 
 
@@ -291,17 +397,9 @@
 
   <footer class="footer">
     <div class="container">
-      <div class="content has-text-centered">
-        <a class="icon-link" href="./static/videos/nerfies_paper.pdf">
-          <i class="fas fa-file-pdf"></i>
-        </a>
-        <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
       <div class="columns is-centered">
         <div class="column is-8">
-          <div class="content">
+          <div class="content" style="text-align: justify;">
             <p>
               This website is licensed under a <a rel="license"
                 href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
