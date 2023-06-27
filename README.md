@@ -1,4 +1,8 @@
 # SemanticSpray Dataset
+Website page: [semantic-spray-dataset.github.io](https://semantic-spray-dataset.github.io/)
+
+<img src="static/videos/compressed/teaser.gif" width="350">
+
 ### Dataset Toolkit
 You can find the dataset toolkit here: [https://github.com/aldipiroli/semantic_spray_dataset](https://github.com/aldipiroli/semantic_spray_dataset).
 
