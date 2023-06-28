@@ -15,11 +15,11 @@
 #
 
 
-<div align="center" style="width:300px">
+<div align="center">
 <figure class="half" style="display:flex">
-    <img src="static/videos/compressed/teaser_0.gif">  &nbsp;
-    <img style="width:300px" src="static/videos/compressed/teaser_1.gif">  &nbsp;
-    <img style="width:300px" src="static/videos/compressed/teaser_2.gif">
+    <img style="width:200px" src="static/videos/compressed/teaser_0.gif">  
+    <img style="width:200px" src="static/videos/compressed/teaser_1.gif">  
+    <img style="width:200px" src="static/videos/compressed/teaser_2.gif">
 </figure>
 </div>
 
