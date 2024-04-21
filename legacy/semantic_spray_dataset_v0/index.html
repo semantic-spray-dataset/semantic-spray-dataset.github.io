@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="SemanticSpray Dataset. LiDAR data captured in adverse weather (rainy conditions). Vehicles traveling through wet surfaces create road spray.">
+  <meta name="keywords" content="SemanticSpray Dataset, LiDAR , dverse weather, rainy conditions, road spray">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SemanticSpray Dataset</title>
+
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1WF92HZQ9N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-1WF92HZQ9N');
+  </script>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">SemanticSpray Dataset</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://aldipiroli.github.io/">Aldi Piroli</a><sup>1</sup>,</span>
+              <span class="author-block">
+                &nbsp;<a href="">Vinzenz Dallabetta</a><sup>2</sup>,</span>
+              <span class="author-block">
+                &nbsp;<a href="">Johannes Kopp</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                &nbsp;<a href="">Marc Walessa</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                &nbsp;<a href="">Daniel Meissner</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                &nbsp;<a href="">Klaus Dietmayer</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Ulm University &nbsp;</span>
+              <span class="author-block"><sup>2</sup>BMW AG</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://ieeexplore.ieee.org/document/10143263"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2305.16129" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/aldipiroli/semantic_spray_dataset"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href="https://www.youtube.com/watch?v=P_dM0mG9wX8&list=PLajmQbgGUOt2T-JjM6sUUDDeaxqmMZro3"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="https://oparu.uni-ulm.de/xmlui/handle/123456789/48891"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-archive"></i>
+                    </span>
+                    <span>Data</span>
+                  </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
+        free-viewpoint
+        portraits.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-130">
+            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/compressed/0102_2021-09-08-17-59-07_0.mp4" type="video/mp4">
+            </video>
+            <p style="text-align: center; ">velocity: 130km/h</p>
+          </div>
+          <div class="item item-120">
+            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/compressed/0090_2021-09-08-11-40-49_0.mp4" type="video/mp4">
+            </video>
+            <p style="text-align: center; ">velocity: 120km/h</p>
+          </div>
+          <div class="item item-110">
+            <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/compressed/0078_2021-09-08-17-22-14_0.mp4" type="video/mp4">
+            </video>
+            <p style="text-align: center; ">velocity: 110km/h</p>
+          </div>
+          <div class="item item-100">
+            <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/compressed/0066_2021-09-08-10-28-53_0.mp4" type="video/mp4">
+            </video>
+            <p style="text-align: center; ">velocity: 100km/h</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              LiDARs are one of the main sensors used for autonomous driving applications, providing accurate depth
+              estimation regardless of lighting conditions. However, they are severely affected by adverse weather
+              conditions such as rain, snow, and fog.
+            </p>
+            <p>
+              This dataset provides semantic labels for a subset of the
+              <a href="https://www.fzd-datasets.de/spray/"> Road Spray Dataset</a>, which contains scenes of vehicles
+              traveling at different speeds on wet surfaces,
+              creating a trailing spray effect. We provide semantic labels for over 200 dynamic scenes, labeling each
+              point in the LiDAR point clouds as background (road, vegetation, buildings, ...), foreground (moving
+              vehicles), and noise (spray, LiDAR artifacts).
+            </p>
+
+          </div>
+        </div>
+      </div>
+      <!--/ Getting Started. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Getting Started</h2>
+          <div class="content has-text-justified">
+            <ul>
+              <li>Download the dataset from <a href="https://oparu.uni-ulm.de/xmlui/handle/123456789/48891">here</a>.
+                Afterwards, you should have the
+                following files:
+                <ul>
+                  <li><code class="bash">SemanticSprayDataset.zip</code></li>
+                  <li><code class="bash">SemanticSprayDataset.z01</code></li>
+                  <li><code class="bash">SemanticSprayDataset.z02</code></li>
+                  <li><code class="bash">SemanticSprayDataset.z03</code></li>
+                  <li><code class="bash">SemanticSprayDataset.z04</code></li>
+                  <li><code class="bash">SemanticSprayDataset.z05</code></li>
+                </ul>
+              </li>
+              <li>Combine all of the zip files in one single file:<br>
+                <code class="bash">
+                  $ zip -F SemanticSprayDataset.zip --out SemanticSprayDataset_single_file.zip
+                </code>
+              </li>
+              <li>Extract the files:<br>
+                <code class="bash">
+                  $ unzip SemanticSprayDataset_single_file.zip
+                </code>
+              </li>
+              <li>The extracted dataset should have a structure like this:
+                <br>
+
+                <pre><code>
+|--- Crafter_dynamic
+|   |--- 0000_2021-09-08-14-36-56_0
+|   |   |--- image_2
+|   |   |   |--- 000000.jpg
+|   |   |   |--- ....
+|   |   |--- delphi_radar
+|   |   |   |--- 000000.bin
+|   |   |   |--- ....
+|   |   |--- ibeo_front
+|   |   |   |--- 000000.bin
+|   |   |   |--- ....
+|   |   |--- ibeo_rear
+|   |   |   |--- 000000.bin
+|   |   |   |--- ....
+|   |   |--- labels
+|   |   |   |--- 000000.label
+|   |   |   |--- ....
+|   |   |--- velodyne
+|   |   |   |--- 000000.bin
+|   |   |   |--- ....
+|   |   |--- poses.txt
+|   |   |--- metadata.txt
+|--- Golf_dynamic
+...
+</code></pre>
+          </div>
+
+          </li>
+
+          </ul>
+        </div>
+      </div>
+
+
+      <!-- Exploring The Data. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Exploring The Data</h2>
+          <div class="content has-text-justified">
+            <p>
+              The <b>sensor setup</b> used for the recordings is the <a
+                href="https://www.fzd-datasets.de/spray/">following</a>:
+            <ul>
+              <li>1 Front Camera</li>
+              <li>1 Velodyne VLP32C LiDAR (top mounted high-resolution LiDAR)</li>
+              <li>2 Ibeo LUX 2010 LiDAR (front and rear mounted, low-resolution LiDAR)</li>
+              <li>1 Aptiv ESR 2.5 Radar</li>
+            </ul>
+            For each scene, each <b>sensor data</b> can be found in their respective folders:
+            <ul>
+              <li>[Camera Image] in the folder "image_2"</li>
+              <li>[VLP32C LiDAR] in the folder "velodyne"</li>
+              <li>[VLIbeo LUX 2010 LiDAR front] in the folder "ibeo_front"</li>
+              <li>[VLIbeo LUX 2010 LiDAR rear] in the folder "ibeo_rear"</li>
+              <li>[Aptiv ESR 2.5 Radar] in the folder "delphi_radar"</li>
+              <li>[Semantic Labels for VLP32C LiDAR] in the folder "labels"</li>
+              <li>The ego vehicle poses are located in the file "poses.txt". The convention used by the <a
+                  href="http://www.semantic-kitti.org/dataset.html"> SemanticKITTI dataset</a> is followed.</li>
+              <li>Additional information on the scene setup (e.g., ego_velocity) are given in the "metadata.txt" file.
+              </li>
+            </ul>
+
+            We provide <b> semantic labels</b> for the VLP32C LiDAR scans. The labeled classes and associated class ID
+            are the following:
+            <ul>
+              <li>
+                <code class="bash">Background: 0</code>
+              </li>
+              <li>
+                <code class="bash">Leading Vehicle: 1</code>
+              </li>
+              <li>
+                <code class="bash">Spray and other noise artifacts : 2</code>
+              </li>
+            </ul>
+            <p>
+              In the following <a href="https://github.com/aldipiroli/semantic_spray_dataset"> GitHub repository</a>, we
+              provide python code for loading and visualizing the dataset.
+            </p>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other Research -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Related Work</h2>
+          <div class="content has-text-justified">
+            <div>
+
+              <div style="width: 60%; float:left; padding-right: 2%;">
+                Together with the SemanticSpray dataset, we released our paper <a
+                  href="https://arxiv.org/abs/2305.16129"> Energy-based Detection of Adverse Weather Effects in LiDAR
+                  Data</a> (RA-L 2023).
+                <br>Our method can robustly detect adverse weather conditions like rain spray, rainfall, snow, and fog
+                in LiDAR point clouds. Additionally, it achieves state-of-the-art results in the detection of weather
+                effects unseen during training.
+                <br>
+                For more information visit:
+                <a href="https://aldipiroli.github.io/projects/energy-based-adverse-weather-detection-lidar/index.html">Project
+                  Page</a> / <a href="https://arxiv.org/abs/2305.16129"> Arxiv </a> / <a
+                  href="https://www.youtube.com/watch?v=pCS3zABdaAU&embeds_referring_euri=https%3A%2F%2Faldipiroli.github.io%2F&source_ve_path=MjM4NTE&feature=emb_title">
+                  Video</a>
+              </div>
+
+              <div style="width: 40%; float:right;  padding-top: 1%;">
+                <img src="static/images/pub_ral2023.png">
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Citation -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Citation</h2>
+          <div class="content has-text-justified">
+            <p>
+            <section class="section" id="BibTeX">
+              <div class="container is-max-desktop content">
+                <h5>SemanticSpray Dataset</h5>
+                <pre><code>@ARTICLE{10143263,
+author={Piroli, Aldi and Dallabetta, Vinzenz and Kopp, Johannes and Walessa, Marc and Meissner, Daniel and Dietmayer, Klaus},
+journal={IEEE Robotics and Automation Letters},
+title={Energy-Based Detection of Adverse Weather Effects in LiDAR Data}, 
+year={2023},
+volume={8},
+number={7},
+pages={4322-4329},
+doi={10.1109/LRA.2023.3282382}}</code></pre>
+              </div>
+              <h5>Road Spray Dataset</h5>
+              <pre><code>@misc{https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/3537,
+url = { https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/3537 },
+author = { Linnhoff, Clemens and Elster, Lukas and Rosenberger, Philipp and Winner, Hermann },
+doi = { 10.48328/tudatalib-930 },
+keywords = { Automated Driving, Lidar, Radar, Spray, Weather, Perception, Simulation, 407-04 Verkehrs- und Transportsysteme, Intelligenter und automatisierter Verkehr, 380 },
+publisher = { Technical University of Darmstadt },
+year = { 2022-04 },
+copyright = { Creative Commons Attribution 4.0 },
+title = { Road Spray in Lidar and Radar Data for Individual Moving Objects }}</code></pre>
+          </div>
+  </section>
+  </p>
+
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
+
+
+
+
+  <!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+    </div>
+  </section> -->
+
+
+
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content" style="text-align: justify;">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+              Please remember to remove the analytics code included in the header of the website which
+              you do not want on your website.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
