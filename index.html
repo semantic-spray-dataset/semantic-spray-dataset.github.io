@@ -182,6 +182,30 @@
 
   <section class="section">
     <div class="container is-max-desktop">
+      <!-- TL;DR -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">TL;DR</h2>
+          <div class="content has-text-justified">
+            <div>
+              <div style="width: 60%; float:left; padding-right: 2%;">
+                The SemanticSpray dataset contains scenes in wet surface conditions caputured by <b>Camera, LiDAR and Radar</b>. <br>
+                The following label types are provided: <br>
+                <ul>
+                  <li><b>Camera: <code>2D Boxes</code></b></li>
+                  <li><b>LiDAR: <code>3D Boxes</code>, <code>Semantic Labels</code></b></li>
+                  <li><b>Radar: <code>Semantic Labels</code></b></li>
+                </ul>
+
+              </div>
+              <div style="width: 40%; float:right;  padding-top: 1%;">
+                <img src="static/images/teaser.png">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
       <!-- NEWS -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
@@ -202,13 +226,12 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              LiDARs are one of the main sensors used for autonomous driving applications, providing accurate depth
-              estimation regardless of lighting conditions. However, they are severely affected by adverse weather
-              conditions such as rain, snow, and fog. <br>
-              This dataset provides labels for a subset of the
-              <a href="https://www.fzd-datasets.de/spray/"> Road Spray Dataset</a>, which contains scenes of vehicles
-              traveling at different speeds on wet surfaces,
-              creating a trailing spray effect. 
+              Autonomous vehicles rely on camera, LiDAR, and radar sensors to navigate the environment. 
+              Adverse weather conditions like snow, rain, and fog are known to be problematic for both camera and LiDAR-based perception systems.  
+              Currently, it is difficult to evaluate the performance of these methods due to the lack of publicly available datasets containing multimodal labeled data. 
+              To address this limitation, we propose the SemanticSpray++ dataset, which provides labels for camera, LiDAR, and radar data of highway-like scenarios in wet surface conditions.
+              In particular, we provide 2D bounding boxes for the camera image, 3D bounding boxes for the LiDAR point cloud, and semantic labels for the radar targets.
+              By labeling all three sensor modalities, the SemanticSpray++ dataset offers a comprehensive test bed for analyzing the performance of different perception methods when vehicles travel on wet surface conditions. 
             </p>
 
           </div>
@@ -263,6 +286,16 @@
 |   |   |--- labels
 |   |   |   |--- 000000.label
 |   |   |   |--- ....
+|   |   |--- radar_labels
+|   |   |   |--- 000000.npy
+|   |   |   |--- ....
+|   |   |--- object_labels
+|   |   |   |--- camera
+|   |   |   |    |--- 000000.json
+|   |   |   |    |--- ....
+|   |   |   |--- lidar
+|   |   |   |    |--- 000000.json
+|   |   |   |    |--- ....
 |   |   |--- velodyne
 |   |   |   |--- 000000.bin
 |   |   |   |--- ....
@@ -294,21 +327,27 @@
               <li>2 Ibeo LUX 2010 LiDAR (front and rear mounted, low-resolution LiDAR)</li>
               <li>1 Aptiv ESR 2.5 Radar</li>
             </ul>
-            For each scene, each <b>sensor data</b> can be found in their respective folders:
+            For each scene, each sensor data can be found in their respective folders:
             <ul>
+              <li style="list-style-type: none;"><b>Raw Data</b></li>
               <li>[Camera Image] in the folder "image_2"</li>
               <li>[VLP32C LiDAR] in the folder "velodyne"</li>
               <li>[VLIbeo LUX 2010 LiDAR front] in the folder "ibeo_front"</li>
               <li>[VLIbeo LUX 2010 LiDAR rear] in the folder "ibeo_rear"</li>
-              <li>[Aptiv ESR 2.5 Radar] in the folder "delphi_radar"</li>
+              <li>[Aptiv ESR 2.5 Radar] in the folder "delphi_radar"</li> <br>
+              <b>Labels</b>
               <li>[Semantic Labels for VLP32C LiDAR] in the folder "labels"</li>
+              <li>[Semantic Labels for Radar] in the folder "radar_labels"</li>
+              <li>[3D Object Labels for VLP32C LiDAR] in the folder "object_labels/lidar"</li>
+              <li>[2D Object Labels for Camera] in the folder "object_labels/camera"</li><br>
+              <b>Other</b>
               <li>The ego vehicle poses are located in the file "poses.txt". The convention used by the <a
                   href="http://www.semantic-kitti.org/dataset.html"> SemanticKITTI dataset</a> is followed.</li>
               <li>Additional information on the scene setup (e.g., ego_velocity) are given in the "metadata.txt" file.
               </li>
             </ul>
 
-            We provide <b> semantic labels</b> for the VLP32C LiDAR scans. The labeled classes and associated class ID
+            <!-- We provide <b> semantic labels</b> for the VLP32C LiDAR scans. The labeled classes and associated class ID
             are the following:
             <ul>
               <li>
@@ -320,7 +359,7 @@
               <li>
                 <code class="bash">Spray and other noise artifacts : 2</code>
               </li>
-            </ul>
+            </ul> -->
             <p>
               In the following <a href="https://github.com/aldipiroli/semantic_spray_dataset"> GitHub repository</a>, we
               provide python code for loading and visualizing the dataset.
@@ -336,7 +375,6 @@
           <h2 class="title is-3">Related Work</h2>
           <div class="content has-text-justified">
             <div>
-
               <div style="width: 60%; float:left; padding-right: 2%;">
                 Together with the SemanticSpray dataset, we released our paper <a
                   href="https://arxiv.org/abs/2305.16129"> Energy-based Detection of Adverse Weather Effects in LiDAR
@@ -372,26 +410,32 @@
             <section class="section" id="BibTeX">
               <div class="container is-max-desktop content">
                 <h5>SemanticSpray Dataset</h5>
-                <pre><code>@ARTICLE{10143263,
-author={Piroli, Aldi and Dallabetta, Vinzenz and Kopp, Johannes and Walessa, Marc and Meissner, Daniel and Dietmayer, Klaus},
-journal={IEEE Robotics and Automation Letters},
-title={Energy-Based Detection of Adverse Weather Effects in LiDAR Data}, 
-year={2023},
-volume={8},
-number={7},
-pages={4322-4329},
-doi={10.1109/LRA.2023.3282382}}</code></pre>
+                <pre><code>
+@article{10143263,
+  author  = {Piroli, Aldi and Dallabetta, Vinzenz and Kopp, Johannes and Walessa, Marc and Meissner, Daniel and Dietmayer, Klaus},
+  journal = {IEEE Robotics and Automation Letters},
+  title   = {Energy-Based Detection of Adverse Weather Effects in LiDAR Data},
+  year    = {2023},
+  volume  = {8},
+  number  = {7},
+  pages   = {4322-4329},
+  doi     = {10.1109/LRA.2023.3282382}
+}
+</code></pre>
               </div>
               <h5>Road Spray Dataset</h5>
-              <pre><code>@misc{https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/3537,
-url = { https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/3537 },
-author = { Linnhoff, Clemens and Elster, Lukas and Rosenberger, Philipp and Winner, Hermann },
-doi = { 10.48328/tudatalib-930 },
-keywords = { Automated Driving, Lidar, Radar, Spray, Weather, Perception, Simulation, 407-04 Verkehrs- und Transportsysteme, Intelligenter und automatisierter Verkehr, 380 },
-publisher = { Technical University of Darmstadt },
-year = { 2022-04 },
-copyright = { Creative Commons Attribution 4.0 },
-title = { Road Spray in Lidar and Radar Data for Individual Moving Objects }}</code></pre>
+              <pre><code>
+@misc{https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/3537,
+  url       = { https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/3537 },
+  author    = { Linnhoff, Clemens and Elster, Lukas and Rosenberger, Philipp and Winner, Hermann },
+  doi       = { 10.48328/tudatalib-930 },
+  keywords  = { Automated Driving, Lidar, Radar, Spray, Weather, Perception, Simulation, 407-04 Verkehrs- und Transportsysteme, Intelligenter und automatisierter Verkehr, 380 },
+  publisher = { Technical University of Darmstadt },
+  year      = { 2022-04 },
+  copyright = { Creative Commons Attribution 4.0 },
+  title     = { Road Spray in Lidar and Radar Data for Individual Moving Objects }
+}
+              </code></pre>
           </div>
   </section>
   </p>
