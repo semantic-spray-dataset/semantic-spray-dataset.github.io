@@ -111,15 +111,26 @@
                     <span>Video</span>
                   </a>
                 </span>
-                <!-- Dataset Link. -->
+                <!-- Dataset Link. P1-->
                 <span class="link-block">
                   <a href="https://oparu.uni-ulm.de/xmlui/handle/123456789/48891"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-archive"></i>
                     </span>
-                    <span>Data</span>
+                    <span>Data P1</span>
                   </a>
+                </span>
+                <!-- Dataset Link. P2-->
+                <span class="link-block">
+                  <a href="https://oparu.uni-ulm.de/xmlui/handle/123456789/48891"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-archive"></i>
+                    </span>
+                    <span>Data P2</span>
+                  </a>
+                </span>
               </div>
 
             </div>
@@ -242,8 +253,12 @@
         <div class="column is-four-fifths">
           <h2 class="title is-3">Getting Started</h2>
           <div class="content has-text-justified">
+            <h5><b>Automatic Download</b></h5>
+            Follow the instruction described here and simply run the <code>download.py</code> script to automatically download the dataset.
+            <br> <br>
+            <h5><b>Manual Download</b></h5>
             <ul>
-              <li>Download the dataset from <a href="https://oparu.uni-ulm.de/xmlui/handle/123456789/48891">here</a>.
+              <li>Alternatively, you can manually download the dataset from <a href="https://oparu.uni-ulm.de/xmlui/handle/123456789/48891">here</a>.
                 Afterwards, you should have the
                 following files:
                 <ul>
@@ -265,7 +280,9 @@
                   $ unzip SemanticSprayDataset_single_file.zip
                 </code>
               </li>
-              <li>The extracted dataset should have a structure like this:
+              <li>Download from <a href="">here</a> the Camera and LiDAR object labels + the radar semantic labels and extract the data in the same directory as before.<br>
+              </li>
+              <li>The entire extracted dataset should have a structure like this:
                 <br>
 
                 <pre><code>
