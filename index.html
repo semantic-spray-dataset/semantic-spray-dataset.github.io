@@ -9,8 +9,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SemanticSpray Dataset</title>
 
-
-
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1WF92HZQ9N"></script>
   <script>
@@ -200,7 +198,8 @@
           <div class="content has-text-justified">
             <div>
               <div style="width: 60%; float:left; padding-right: 2%;">
-                The SemanticSpray dataset contains scenes in wet surface conditions caputured by <b>Camera, LiDAR and Radar</b>. <br>
+                The SemanticSpray dataset contains scenes in wet surface conditions captured by <b>Camera, LiDAR and
+                  Radar</b>. <br>
                 The following label types are provided: <br>
                 <ul>
                   <li><b>Camera: <code>2D Boxes</code></b></li>
@@ -223,10 +222,13 @@
           <h2 class="title is-3">News</h2>
           <div class="content has-text-justified">
             <p>
-              <ul>
-                <li><b>2024-04-21: </b>The SemanticSpray++ dataset is accepted at IV2024. Here 2D camera boxes, 3D LiDAR boxes and radar semantic labels are additionally provided.</li>
-                <li><b>2023-07-01: </b>The SematnicSpray dataset is released as part of our <a href="https://arxiv.org/abs/2305.16129">RA-L / ICRA-2024 paper</a>, providing for the LiDAR point cloud.</li>
-              </ul> 
+            <ul>
+              <li><b>2024-04-21: </b>The SemanticSpray++ dataset is accepted at IV2024. Here 2D camera boxes, 3D LiDAR
+                boxes and radar semantic labels are additionally provided.</li>
+              <li><b>2023-07-01: </b>The SematnicSpray dataset is released as part of our <a
+                  href="https://arxiv.org/abs/2305.16129">RA-L / ICRA-2024 paper</a>, providing for the LiDAR point
+                cloud.</li>
+            </ul>
             </p>
           </div>
         </div>
@@ -237,12 +239,17 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Autonomous vehicles rely on camera, LiDAR, and radar sensors to navigate the environment. 
-              Adverse weather conditions like snow, rain, and fog are known to be problematic for both camera and LiDAR-based perception systems.  
-              Currently, it is difficult to evaluate the performance of these methods due to the lack of publicly available datasets containing multimodal labeled data. 
-              To address this limitation, we propose the SemanticSpray++ dataset, which provides labels for camera, LiDAR, and radar data of highway-like scenarios in wet surface conditions.
-              In particular, we provide 2D bounding boxes for the camera image, 3D bounding boxes for the LiDAR point cloud, and semantic labels for the radar targets.
-              By labeling all three sensor modalities, the SemanticSpray++ dataset offers a comprehensive test bed for analyzing the performance of different perception methods when vehicles travel on wet surface conditions. 
+              Autonomous vehicles rely on camera, LiDAR, and radar sensors to navigate the environment.
+              Adverse weather conditions like snow, rain, and fog are known to be problematic for both camera and
+              LiDAR-based perception systems.
+              Currently, it is difficult to evaluate the performance of these methods due to the lack of publicly
+              available datasets containing multimodal labeled data.
+              To address this limitation, we propose the SemanticSpray++ dataset, which provides labels for camera,
+              LiDAR, and radar data of highway-like scenarios in wet surface conditions.
+              In particular, we provide 2D bounding boxes for the camera image, 3D bounding boxes for the LiDAR point
+              cloud, and semantic labels for the radar targets.
+              By labeling all three sensor modalities, the SemanticSpray++ dataset offers a comprehensive test bed for
+              analyzing the performance of different perception methods when vehicles travel on wet surface conditions.
             </p>
 
           </div>
@@ -253,39 +260,17 @@
         <div class="column is-four-fifths">
           <h2 class="title is-3">Getting Started</h2>
           <div class="content has-text-justified">
-            <h5><b>Automatic Download</b></h5>
-            Follow the instruction described here and simply run the <code>download.py</code> script to automatically download the dataset.
-            <br> <br>
-            <h5><b>Manual Download</b></h5>
-            <ul>
-              <li>Alternatively, you can manually download the dataset from <a href="https://oparu.uni-ulm.de/xmlui/handle/123456789/48891">here</a>.
-                Afterwards, you should have the
-                following files:
-                <ul>
-                  <li><code class="bash">SemanticSprayDataset.zip</code></li>
-                  <li><code class="bash">SemanticSprayDataset.z01</code></li>
-                  <li><code class="bash">SemanticSprayDataset.z02</code></li>
-                  <li><code class="bash">SemanticSprayDataset.z03</code></li>
-                  <li><code class="bash">SemanticSprayDataset.z04</code></li>
-                  <li><code class="bash">SemanticSprayDataset.z05</code></li>
-                </ul>
-              </li>
-              <li>Combine all of the zip files in one single file:<br>
-                <code class="bash">
-                  $ zip -F SemanticSprayDataset.zip --out SemanticSprayDataset_single_file.zip
-                </code>
-              </li>
-              <li>Extract the files:<br>
-                <code class="bash">
-                  $ unzip SemanticSprayDataset_single_file.zip
-                </code>
-              </li>
-              <li>Download from <a href="">here</a> the Camera and LiDAR object labels + the radar semantic labels and extract the data in the same directory as before.<br>
-              </li>
-              <li>The entire extracted dataset should have a structure like this:
-                <br>
-
-                <pre><code>
+            <!-- <h5><b>Automatic Download</b></h5> -->
+            <li>An automatic download script is provided:</li>
+            <code>git clone https://github.com/uulm-mrm/semantic_spray_dataset.git</code>
+            <br><code>bash download.sh</code>
+            <br><br>
+            <li>For a manual download of the data, instructions are given <a
+              href="https://github.com/uulm-mrm/semantic_spray_dataset/blob/feat_semantic_spray_pp/docs/manual_download.md">here</a>.</li>
+            <!-- <ul> -->
+            <li>The downloaded dataset should look like the following:</li>
+            <pre><code>
+├── data
 |--- Crafter_dynamic
 |   |--- 0000_2021-09-08-14-36-56_0
 |   |   |--- image_2
@@ -320,6 +305,12 @@
 |   |   |--- metadata.txt
 |--- Golf_dynamic
 ...
+├── ImageSets
+│   ├── test.txt
+│   └── train.txt
+├── ImageSets++
+│   └── test.txt
+└── README.txt
 </code></pre>
           </div>
 
