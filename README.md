@@ -12,6 +12,4 @@
 <br>
 
 #### Please refer to the official [GitHub repository](https://github.com/aldipiroli/semantic_spray_dataset)  for the dataset toolkit. This page is intended only for hosting the [project page](https://semantic-spray-dataset.github.io). 
-<br>
-<br>
-[Website template](https://nerfies.github.io).
+Website template: https://nerfies.github.io
